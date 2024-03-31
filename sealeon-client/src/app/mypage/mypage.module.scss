@@ -1,0 +1,77 @@
+.container {
+  margin-top: 72px;
+  display: flex;
+  padding: 20px;
+  width: 100vw;
+  gap: 20px;
+}
+
+.myInfo {
+  flex: 1;
+  max-width: 240px;
+}
+
+.otherSections {
+  flex: 5;
+}
+
+.section,
+.myInfo {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.heading {
+  margin-bottom: 15px;
+  color: var(--Text-primary);
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.infoLine {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.infoValue {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.infoValueColor {
+  font-weight: normal;
+  margin-top: 5px;
+  color: #979797;
+}
+
+.button {
+  padding: 10px 15px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease;
+
+  &:hover {
+    background-color: #444;
+    transform: translateY(-2px); /* 버튼 호버 애니메이션 추가 */
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr); /* 그리드 레이아웃으로 변경 */
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}

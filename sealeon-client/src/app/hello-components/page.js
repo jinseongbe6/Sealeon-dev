@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 
-import styles from '@/app/app.module.css';
 import { DocsCard, HelloNearCard } from '@/components/cards';
 import { NetworkId, ComponentMap } from '@/config';
 
@@ -12,14 +11,14 @@ export default function HelloComponents() {
 
   return (
     <>
-      <main className={styles.main}>
-        <div className={styles.description}>
+      <main >
+        <div >
           <p>
             Loading components from: &nbsp;
-            <code className={styles.code}>{socialComponents.socialDB}</code>
+            <code >{socialComponents.socialDB}</code>
           </p>
         </div>
-        <div className={styles.center}>
+        <div >
           <h1> <code>Multi-chain</code> Components Made Simple </h1>
         </div>
         <div className='row'>
@@ -34,7 +33,7 @@ export default function HelloComponents() {
         </div>
         <hr />
 
-        <div className={styles.grid}>
+        <div >
           <DocsCard />
           <HelloNearCard />
         </div>

@@ -3,7 +3,6 @@ import { DocsCard, HelloComponentsCard } from '@/components/cards';
 import { useWallet } from '@/wallets/wallet-selector';
 import { useState, useEffect } from 'react';
 import { HelloNearContract, NetworkId } from '../../config';
-import styles from '../app.module.css';
 
 // Contract that the app will interact with
 const CONTRACT = HelloNearContract[NetworkId];

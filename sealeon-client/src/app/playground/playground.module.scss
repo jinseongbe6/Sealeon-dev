@@ -1,0 +1,122 @@
+.mainContainer {
+  margin-top: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleContainer {
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-self: stretch;
+}
+
+.titleWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.title {
+  color: var(--Text-primary, #000);
+
+  /* Heading/Desktop/H2 */
+  font-family: Roboto;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 57.6px */
+}
+
+.description {
+  color: var(--Text-primary, #000);
+
+  /* Text/Medium/Normal */
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 27px */
+}
+
+.btnWrap {
+  display: flex;
+  height: 100%;
+  align-items: end;
+}
+
+.viewAllBtn {
+  width: 104px;
+  height: 48px;
+  align-self: stretch;
+  display: flex;
+  // padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  border: 1px solid var(--Color-Neutral-black, #000);
+  color: var(--Text-primary, #000);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+  gap: 15px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1440px;
+  justify-content: center;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.noServicesMessage {
+  grid-column: 1 / -1; // 메시지를 그리드의 전체 너비로 확장
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.lodingContainer {
+  margin-top: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 400px);
+  /* Targeting the Next.js Image container div */
+  .laodingImageContainer {
+    overflow: hidden; /* Ensures that the border-radius applies to the image */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    line-height: 0; /* Fix for spacing issue below the image */
+    margin-bottom: 70px;
+
+    /* Optional: set a specific size for the image container if desired */
+
+    height: auto;
+
+    img {
+      transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+    }
+
+    &:hover img {
+      transform: scale(1.05); /* Slight zoom effect on hover */
+    }
+  }
+}

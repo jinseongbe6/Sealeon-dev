@@ -1,0 +1,433 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 72px;
+  max-width: 1440px;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+
+.infoImg {
+  width: 768px;
+  height: 769px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.titleContainer {
+  display: flex;
+  padding: 80px 64px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  align-self: stretch;
+}
+
+.titleLeftCtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 1 0 0;
+}
+
+.title {
+  color: var(--Text-primary, #000);
+
+  /* Heading/Desktop/H1 */
+  font-family: Roboto;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 67.2px */
+}
+
+.tagContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+.tag {
+  color: var(--Text-primary, #000);
+
+  /* Text/Small/Semi Bold */
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 21px */
+  display: flex;
+  padding: 4px 8px;
+  align-items: flex-start;
+  background: var(--Color-Neutral-neutral-lightest, #eee);
+}
+
+.titleRightCtn {
+  flex: 1 0 0;
+  align-self: stretch;
+  color: var(--Text-primary, #000);
+
+  /* Text/Regular/Normal */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+
+.infoContainer {
+  margin: 112px 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  align-self: stretch;
+  padding: 0 64px;
+}
+
+.galleryContainer {
+  display: flex;
+  width: 768px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 1 0 0;
+}
+
+.descriptionTitle {
+  align-self: stretch;
+  color: var(--Text-primary, #000);
+
+  /* Heading/Desktop/H2 */
+  font-family: Roboto;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 57.6px */
+}
+
+.descriptionContents {
+  line-height: 130%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  div {
+    display: flex;
+    padding-bottom: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+}
+
+.priceContainer {
+  display: flex;
+  width: 1440px;
+  padding: 112px 64px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+.priceTopContainer {
+  display: flex;
+  width: 768px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.smallTag {
+  color: var(--Text-primary, #000);
+
+  /* Text/Regular/Semi Bold */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+}
+.priceTitle {
+  color: var(--Text-primary, #000);
+
+  /* Heading/Desktop/H2 */
+  font-family: Roboto;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 57.6px */
+}
+.description {
+  color: var(--Text-primary, #000);
+
+  /* Text/Medium/Normal */
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 27px */
+}
+.priceBottomContainer {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  align-self: stretch;
+}
+.checklistContainer {
+  display: flex;
+  padding: 8px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  flex: 1 0 0;
+}
+.checklistContents {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+.checklistWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  flex: 1 0 0;
+}
+.checklistTitle {
+  color: var(--Text-primary, #000);
+
+  /* Heading/Desktop/H6 */
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%; /* 28px */
+}
+.checklistDescription {
+  color: var(--Text-primary, #000);
+
+  /* Text/Regular/Normal */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+
+.priceInfoContainer {
+  display: flex;
+  padding: 32px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  flex: 1 0 0;
+  border: 1px solid var(--Border-primary, #000);
+}
+
+.priceInfoContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+  max-width: 616px;
+}
+.topContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+.purchaseTitleWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.purchaseTitle {
+  color: var(--Text-primary, #000);
+
+  /* Heading/Desktop/H5 */
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%; /* 33.6px */
+}
+.purchaseDescription {
+  color: var(--Text-primary, #000);
+
+  /* Text/Regular/Normal */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+.price {
+  color: var(--Text-primary, #000);
+  /* Heading/Desktop/H1 */
+  font-family: Roboto;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 67.2px */
+}
+.middleContainer {
+  max-width: 552px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+.lineWrap {
+  max-width: 452px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+}
+.line {
+  width: 552px;
+  height: 1px;
+  border: 1px solid var(--Border-primary, #000);
+}
+.bottomContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.purchaseBtn {
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border: 1px solid var(--Color-Neutral-black, #000);
+  background: var(--Color-Neutral-black, #000);
+  color: var(--Text-alternate, #fff);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+
+.slider {
+  -webkit-appearance: none; /* 오버라이드 기본 스타일 */
+  width: 100%; /* 슬라이더의 폭을 조정 */
+  height: 8px; /* 슬라이더 트랙의 높이 */
+  background: #ddd; /* 슬라이더 트랙의 배경색 */
+  outline: none; /* 포커스 시 외곽선 제거 */
+  opacity: 0.7; /* 슬라이더의 투명도 */
+  transition: opacity 0.2s; /* 투명도 변화 애니메이션 */
+
+  &:hover {
+    opacity: 1; /* 호버 시 투명도 변경 */
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none; /* 기본 엄지 스타일 제거 */
+    appearance: none;
+    width: 20px; /* 엄지의 폭 */
+    height: 20px; /* 엄지의 높이 */
+    background: #000000; /* 엄지의 배경색 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    border-radius: 9px;
+  }
+
+  &::-moz-range-thumb {
+    width: 20px; /* 엄지의 폭 */
+    height: 20px; /* 엄지의 높이 */
+    background: #000000; /* 엄지의 배경색 */
+    cursor: pointer; /* 마우스 커서 변경 */
+    border-radius: 9px;
+  }
+}
+
+.selectedTime,
+.priceDisplay {
+  align-self: stretch;
+  color: var(--Text-primary, #000);
+
+  /* Heading/Desktop/H2 */
+  font-family: Roboto;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 57.6px */
+
+  font-size: 28px; /* 적당한 글자 크기 */
+  color: #333; /* 진한 회색으로 읽기 쉬운 텍스트 */
+  background-color: #f0f0f0; /* 연한 배경색 */
+  padding: 10px 20px; /* 내부 여백 */
+  margin: 10px 0; /* 외부 여백 */
+  border-radius: 5px; /* 모서리를 부드럽게 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 효과 */
+  width: fit-content; /* 내용에 맞게 너비 조정 */
+  transition: transform 0.3s ease; /* 호버 시 변환 효과를 위한 준비 */
+}
+
+.totalpriceWrap {
+  color: var(--Text-primary, #000);
+
+  /* Text/Regular/Normal */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lodingContainer {
+  margin-top: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 400px);
+  /* Targeting the Next.js Image container div */
+  .laodingImageContainer {
+    overflow: hidden; /* Ensures that the border-radius applies to the image */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    line-height: 0; /* Fix for spacing issue below the image */
+    margin-bottom: 70px;
+
+    /* Optional: set a specific size for the image container if desired */
+
+    height: auto;
+
+    img {
+      transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+    }
+
+    &:hover img {
+      transform: scale(1.05); /* Slight zoom effect on hover */
+    }
+  }
+}

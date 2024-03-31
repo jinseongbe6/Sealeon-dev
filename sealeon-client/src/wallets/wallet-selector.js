@@ -1,37 +1,39 @@
-import { create as createStore } from 'zustand';
-import { distinctUntilChanged, map } from 'rxjs';
-import { providers } from 'near-api-js';
-import { setupWalletSelector } from '@near-wallet-selector/core';
-import { setupModal } from '@near-wallet-selector/modal-ui';
-import { setupMyNearWallet } from '@near-wallet-selector/my-near-wallet';
-import { setupHereWallet } from '@near-wallet-selector/here-wallet';
+import { create as createStore } from "zustand";
+import { distinctUntilChanged, map } from "rxjs";
+import { providers } from "near-api-js";
+import { setupWalletSelector } from "@near-wallet-selector/core";
+import { setupModal } from "@near-wallet-selector/modal-ui";
+import { setupMyNearWallet } from "@near-wallet-selector/my-near-wallet";
+import { setupHereWallet } from "@near-wallet-selector/here-wallet";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-export const useWallet = createStore(set => ({
-  signedAccountId: '',
+export const useWallet = createStore((set) => ({
+  signedAccountId: "",
   logOut: undefined,
   logIn: undefined,
   selector: undefined,
   viewMethod: undefined,
   callMethod: undefined,
+  callMethodCustom: undefined,
   setLogActions: ({ logOut, logIn }) => set({ logOut, logIn }),
   setAuth: ({ signedAccountId }) => set({ signedAccountId }),
-  setMethods: ({ viewMethod, callMethod }) => set({ viewMethod, callMethod }),
+  setMethods: ({ viewMethod, callMethod, callMethodCustom }) =>
+    set({ viewMethod, callMethod, callMethodCustom }),
   setStoreSelector: ({ selector }) => set({ selector }),
 }));
 
 export function useInitWallet({ createAccessKeyFor, networkId }) {
-  const setAuth = useWallet(store => store.setAuth);
-  const setLogActions = useWallet(store => store.setLogActions);
-  const setMethods = useWallet(store => store.setMethods);
-  const setStoreSelector = useWallet(store => store.setStoreSelector);
+  const setAuth = useWallet((store) => store.setAuth);
+  const setLogActions = useWallet((store) => store.setLogActions);
+  const setMethods = useWallet((store) => store.setMethods);
+  const setStoreSelector = useWallet((store) => store.setStoreSelector);
   const [selector, setSelector] = useState(undefined);
 
   useEffect(() => {
     const selector = setupWalletSelector({
       network: networkId,
-      modules: [setupMyNearWallet(), setupHereWallet()]
+      modules: [setupMyNearWallet(), setupHereWallet()],
     });
 
     setSelector(selector);
@@ -41,9 +43,10 @@ export function useInitWallet({ createAccessKeyFor, networkId }) {
   useEffect(() => {
     if (!selector) return;
 
-    selector.then(walletSelector => {
+    selector.then((walletSelector) => {
       const accounts = walletSelector.store.getState().accounts;
-      const signedAccountId = accounts.find((account) => account.active)?.accountId || '';
+      const signedAccountId =
+        accounts.find((account) => account.active)?.accountId || "";
       setAuth({ signedAccountId });
 
       walletSelector.store.observable
@@ -52,7 +55,8 @@ export function useInitWallet({ createAccessKeyFor, networkId }) {
           distinctUntilChanged()
         )
         .subscribe((accounts) => {
-          const signedAccountId = accounts.find((account) => account.active)?.accountId || '';
+          const signedAccountId =
+            accounts.find((account) => account.active)?.accountId || "";
           setAuth({ signedAccountId });
         });
     });
@@ -65,11 +69,13 @@ export function useInitWallet({ createAccessKeyFor, networkId }) {
     const logOut = async () => {
       const wallet = await (await selector).wallet();
       await wallet.signOut();
-      setAuth({ signedAccountId: '' });
+      setAuth({ signedAccountId: "" });
     };
 
     const logIn = async () => {
-      const modal = setupModal(await selector, { contractId: createAccessKeyFor });
+      const modal = setupModal(await selector, {
+        contractId: createAccessKeyFor,
+      });
       modal.show();
     };
 
@@ -84,23 +90,29 @@ export function useInitWallet({ createAccessKeyFor, networkId }) {
       const provider = new providers.JsonRpcProvider({ url: network.nodeUrl });
 
       let res = await provider.query({
-        request_type: 'call_function',
+        request_type: "call_function",
         account_id: contractId,
         method_name: method,
-        args_base64: Buffer.from(JSON.stringify(args)).toString('base64'),
-        finality: 'optimistic',
+        args_base64: Buffer.from(JSON.stringify(args)).toString("base64"),
+        finality: "optimistic",
       });
       return JSON.parse(Buffer.from(res.result).toString());
     };
 
-    const callMethod = async (contractId, method, args = {}, gas = '30000000000000', deposit = 0) => {
+    const callMethod = async (
+      contractId,
+      method,
+      args = {},
+      gas = "30000000000000",
+      deposit = 0
+    ) => {
       const wallet = await (await selector).wallet();
-
+      console.log(contractId, method, args, gas, deposit);
       const outcome = await wallet.signAndSendTransaction({
         receiverId: contractId,
         actions: [
           {
-            type: 'FunctionCall',
+            type: "FunctionCall",
             params: {
               methodName: method,
               args,
@@ -109,12 +121,41 @@ export function useInitWallet({ createAccessKeyFor, networkId }) {
             },
           },
         ],
+        callbackUrl: "http://localhost:3000/success-page",
       });
 
       return providers.getTransactionLastResult(outcome);
     };
 
-    setMethods({ viewMethod, callMethod });
+    const callMethodCustom = async (
+      contractId,
+      method,
+      args = {},
+      callbackUrl = "http://localhost:3000/success-page",
+      gas = "30000000000000",
+      deposit = 0
+    ) => {
+      const wallet = await (await selector).wallet();
+      console.log(contractId, method, args, gas, deposit);
+      const outcome = await wallet.signAndSendTransaction({
+        receiverId: contractId,
+        actions: [
+          {
+            type: "FunctionCall",
+            params: {
+              methodName: method,
+              args,
+              gas,
+              deposit,
+            },
+          },
+        ],
+        callbackUrl: callbackUrl,
+      });
 
+      return providers.getTransactionLastResult(outcome);
+    };
+
+    setMethods({ viewMethod, callMethod, callMethodCustom });
   }, [selector, setMethods]);
 }
